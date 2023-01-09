@@ -26,6 +26,9 @@ module.exports = {
       "selected-recent-bg": "#312EB5",
 
       "menu-item-text": "#FFFFFF99",
+
+      "option-bg": "#1C1C1C",
+      "option-bg-hover": "#171717",
     },
     fontFamily: {
       logo: ["Kaushan Script"],

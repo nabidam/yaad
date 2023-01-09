@@ -1,0 +1,79 @@
+if (typeof window !== "undefined") {
+  require("tinymce/tinymce");
+  require("tinymce/icons/default");
+  require("tinymce/themes/silver");
+  require("tinymce/plugins/advlist");
+  require("tinymce/plugins/autolink");
+  require("tinymce/plugins/lists");
+  require("tinymce/plugins/link");
+  require("tinymce/plugins/image");
+  require("tinymce/plugins/charmap");
+  require("tinymce/plugins/print");
+  require("tinymce/plugins/preview");
+  require("tinymce/plugins/anchor");
+  require("tinymce/plugins/searchreplace");
+  require("tinymce/plugins/visualblocks");
+  require("tinymce/plugins/code");
+  require("tinymce/plugins/fullscreen");
+  require("tinymce/plugins/insertdatetime");
+  require("tinymce/plugins/media");
+  require("tinymce/plugins/table");
+  require("tinymce/plugins/paste");
+  require("tinymce/plugins/code");
+  require("tinymce/plugins/help");
+  require("tinymce/plugins/wordcount");
+  require("tinymce/plugins/hr");
+  require("tinymce/plugins/noneditable");
+  require("tinymce/plugins/pagebreak");
+  // require("tinymce/plugins/save");
+  // require("tinymce/plugins/autosave");
+  require("tinymce/plugins/codesample");
+  require("tinymce/plugins/quickbars");
+  require("tinymce/plugins/toc");
+  require("tinymce/plugins/imagetools");
+  require("tinymce/plugins/importcss");
+
+  require("tinymce/plugins/directionality");
+  require("tinymce/plugins/visualchars");
+  require("tinymce/plugins/visualblocks");
+  require("tinymce/plugins/textpattern");
+  require("tinymce/plugins/template");
+  require("tinymce/plugins/nonbreaking");
+  require("tinymce/plugins/autoresize");
+  require("tinymce/plugins/spellchecker");
+}
+
+import { Editor as TEditor } from "@tinymce/tinymce-react";
+
+const initialPlugins =
+  "print preview paste searchreplace autolink directionality code visualblocks visualchars fullscreen link template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount textpattern help charmap image media";
+
+export default function Editor() {
+  return (
+    <TEditor
+      init={{
+        height: "500px",
+        mobile: {
+          menubar: true,
+        },
+        invalid_styles: {
+          "*": "height",
+        },
+        autoresize_on_init: false,
+        // plugins:
+        //   "print preview paste searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen link template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount textpattern help charmap image media",
+        plugins: initialPlugins,
+        menubar: false,
+        // menubar: "file edit view insert tools table help",
+        // file_picker_types: "file image media",
+        statusbar: false,
+        toolbar: `formatselect fontsizeselect | bold italic underline strikethrough | numlist bullist | image media link | ltr rtl`,
+        skin_url: "/js/tinymce/skins/ui/oxide-dark",
+        content_css: "/js/tinymce/skins/content/writer/content.min.css",
+        // language_url: "/js/tinymce/langs/fa_IR.js",
+        // language: "fa_IR",
+        // fullpage_default_font_family: "Vazir",
+      }}
+    />
+  );
+}
